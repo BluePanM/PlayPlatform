@@ -1,9 +1,14 @@
 package zgc.scene;
 
+import com.sun.javafx.tk.FontLoader;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 
 /**
  * Created by 中秋月 on 2017/1/26.
@@ -15,9 +20,9 @@ public class NewWindow {
 	private static final String platform = UIManager.getSystemLookAndFeelClassName();
 	private static final int width = 1150;
 	private static final int height = 647;
-	private JFrame scene = new JFrame();
+	JFrame scene = new JFrame();
 
-	public NewWindow(String[] arg) {
+	public NewWindow(String[] args) {
 		scene.setSize(width, height);
 		// 是的，这一大段代码是为了让窗口居中！
 		Toolkit kit = Toolkit.getDefaultToolkit();                                  // 定义工具包
@@ -30,13 +35,12 @@ public class NewWindow {
 
 		scene.setTitle("初始化中……");
 		scene.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.changeFont();
 
 		// 更改外观与本地外观一致
 		// Swing的外观实在是太吃藕了
 		if (!UIManager.getLookAndFeel().getName().equals(platform)) {
 			try {
-				System.out.println(platform);
+				// System.out.println(platform);
 				UIManager.setLookAndFeel(platform);
 			} catch (Exception e) {
 				// TODO 这TMD一定要实现Log系统！
@@ -45,14 +49,9 @@ public class NewWindow {
 			}
 		}
 		scene.setVisible(true);
-
-		JLabel jn = new JLabel("123dvfegvrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
-		scene.add(jn);
-		scene.validate();
-	}
-	private void changeFont() {
-		Font definedFont = null;                        // 字体
-		InputStream in = null;                          // 输入
-		BufferedInputStream bin = null;                 // 感觉注释好没意思
+		// Log系统
+		// Log.log(...)
+		// 从这里，就开始由用户脚本驱动了
+		new SceneRender(scene, args);
 	}
 }
