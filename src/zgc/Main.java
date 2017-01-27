@@ -18,7 +18,7 @@ public class Main {
 
 		// 控制台参数
 		if (args.length == 0) {
-			new InitError();
+			Errors.error("没有启动所用的参数呦！╮(๑•́ ₃•̀๑)╭");
 		}
 		StartScenePath.setStartScenePath(args[0]);
 		new NewWindow();

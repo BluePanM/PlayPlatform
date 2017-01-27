@@ -18,6 +18,6 @@ public class ScriptRunner {
 		run();
 	}
 	private void run() {
-
+		System.out.println("scriptRunner");
 	}
 }

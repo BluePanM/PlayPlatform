@@ -8,10 +8,10 @@ import javax.swing.*;
  * @author 中秋月
  * @author Mid_Autumn_moon
  */
-class InitError {
-	InitError() {
+public class Errors {
+	public static void error(String message) {
 		// Log.log(...)
-		JOptionPane.showMessageDialog(null, "没有启动所用的参数呦！╮(๑•́ ₃•̀๑)╭", "嗯", JOptionPane.ERROR_MESSAGE);
+		JOptionPane.showMessageDialog(null, message, "好吧", JOptionPane.ERROR_MESSAGE);
 		System.exit(0);
 	}
 }
