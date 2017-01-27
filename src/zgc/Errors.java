@@ -11,7 +11,7 @@ import javax.swing.*;
 public class Errors {
 	public static void error(String message) {
 		// Log.log(...)
-		JOptionPane.showMessageDialog(null, message, "好吧", JOptionPane.ERROR_MESSAGE);
+		JOptionPane.showMessageDialog(null, message, "出错啦！", JOptionPane.ERROR_MESSAGE);
 		System.exit(0);
 	}
 }

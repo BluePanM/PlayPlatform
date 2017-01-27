@@ -4,6 +4,8 @@ import zgc.file.ReadMedia;
 import zgc.file.ReadScene;
 import zgc.res.StartScenePath;
 
+import java.util.LinkedList;
+
 /**
  * Created by 中秋月 on 2017/1/27.
  *
@@ -16,5 +18,8 @@ class Parser {
 	Parser() {
 		// 开始场景
 		ReadScene sceneSource = new ReadScene(StartScenePath.getStartScenePath() + "开始.sen");
+		// 取得内容
+		LinkedList<Character> content = sceneSource.getContent();
+
 	}
 }
