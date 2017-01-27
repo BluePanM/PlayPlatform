@@ -7,9 +7,18 @@ import java.awt.*;
  *
  * @author 中秋月
  * @author Mid_Autumn_moon
+ *
+ * 就是返回一个Font对象，字体用。
  */
 public class MyFont {
-	public static Font getMyFont() {
-		return new Font("微软雅黑", Font.PLAIN, 36);
+	public static Font getMyFont(int fontSize) {
+		Font font;
+		try {
+			font = new Font("微软雅黑", Font.PLAIN, fontSize);
+		} catch (Exception e) {
+			// Log.log(...)
+			font = new Font("宋体", Font.PLAIN, fontSize);
+		}
+	return font;
 	}
 }

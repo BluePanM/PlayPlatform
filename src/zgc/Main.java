@@ -1,6 +1,6 @@
 package zgc;
 
-import zgc.log.Log;
+import zgc.res.StartScenePath;
 import zgc.scene.NewWindow;
 
 /**
@@ -20,6 +20,7 @@ public class Main {
 		if (args.length == 0) {
 			new InitError();
 		}
-		new NewWindow(args);
+		StartScenePath.setStartScenePath(args[0]);
+		new NewWindow();
 	}
 }

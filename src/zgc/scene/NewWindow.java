@@ -1,6 +1,8 @@
 package zgc.scene;
 
 import com.sun.javafx.tk.FontLoader;
+import zgc.res.Scene;
+import zgc.script.ScriptRunner;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,14 +17,24 @@ import java.net.URL;
  *
  * @author 中秋月
  * @author Mid_Autumn_moon
+ *
+ * 初始化窗口
  */
 public class NewWindow {
 	private static final String platform = UIManager.getSystemLookAndFeelClassName();
 	private static final int width = 1150;
 	private static final int height = 647;
-	JFrame scene = new JFrame();
+	private JFrame scene = Scene.getScene();
 
-	public NewWindow(String[] args) {
+	public NewWindow() {
+		init();
+		// TODO Log系统
+		// Log.log(...)
+		// 从这里，就开始由用户脚本驱动了
+		new ScriptRunner();
+	}
+	// 初始化
+	private void init() {
 		scene.setSize(width, height);
 		// 是的，这一大段代码是为了让窗口居中！
 		Toolkit kit = Toolkit.getDefaultToolkit();                                  // 定义工具包
@@ -49,9 +61,5 @@ public class NewWindow {
 			}
 		}
 		scene.setVisible(true);
-		// Log系统
-		// Log.log(...)
-		// 从这里，就开始由用户脚本驱动了
-		new SceneRender(scene, args);
 	}
 }
